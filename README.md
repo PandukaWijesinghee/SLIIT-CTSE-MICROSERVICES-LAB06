@@ -62,7 +62,7 @@ Billing Service (8083) ← Consumes Event
 
 2. **Start all services:**
    ```bash
-   docker-compose up --build
+   docker compose up --build
    ```
 
 3. **Check all services are running:**
@@ -74,7 +74,7 @@ Billing Service (8083) ← Consumes Event
 
 1. **Start Kafka:**
    ```bash
-   docker-compose up kafka -d
+   docker compose up kafka -d
    ```
 
 2. **Start services individually:**
@@ -127,7 +127,7 @@ After creating an order, you should see logs in all services:
 
 **Order Service Log:**
 ```
-Order created with id: 1
+Order created with id: ORD-1001
 Published OrderCreated event to Kafka: {...}
 ```
 
@@ -167,7 +167,7 @@ GET http://localhost:8080/orders
 6. **Billing Service** consumes event and generates invoice
 7. All services log successful processing
 
-## 📊 Health Checks
+## Health Checks
 
 Check if all services are healthy:
 
@@ -185,21 +185,21 @@ GET http://localhost:8082/actuator/health
 GET http://localhost:8083/actuator/health
 ```
 
-## 🐳 Docker Commands
+## Docker Commands
 
 ```bash
 # Start all services
-docker-compose up --build
+docker compose up --build
 
 # Start in background
-docker-compose up -d --build
+docker compose up -d --build
 
 # View logs
-docker-compose logs -f [service-name]
+docker compose logs -f [service-name]
 
 # Stop all services
-docker-compose down
+docker compose down
 
 # Clean up
-docker-compose down --volumes --rmi all
+docker compose down --volumes --rmi all
 ```
